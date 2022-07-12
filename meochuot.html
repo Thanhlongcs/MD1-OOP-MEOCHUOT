@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let rat = new Rat('Mickey', 7, 10, 'chit chit',true)
+    let rat2 = new Rat('Jerry',5,5,'chit chit',true)
+    let cat = new Cat('Tom',20,7,'meo meo')
+    class Animal{
+        constructor(name,weight,speed,say) {
+            this.name = name;
+            this.weight = weight;
+            this.speed = speed;
+            this.say = say;
+        }
+        getName(){
+            return this.name;
+        }
+        setName(name){
+            this.name = name;
+        }
+        getWeight(){
+            return this.weight;
+        }
+        setWeight(weight){
+            this.weight = weight;
+        }
+        getSpeed(){
+            return this.speed;
+        }
+        setSpeed(speed){
+            this.speed = speed;
+        }
+        getSay(){
+            return this.say;
+        }
+        setSay(say){
+            this.say = say;
+        }
+    }
+    class Rat extends Animal{
+
+        constructor(name, weight, speed, say,status) {
+            super(name, weight, speed, say);
+            this.status = status;
+        }
+        getStatus(){
+            return this.status;
+        }
+        setStatus(status){
+            this.status = status;
+        }
+    }
+    class Cat extends Animal{
+
+        constructor(name, weight, speed, say) {
+            super(name, weight, speed, say);
+        }
+        catchRat(rat){
+            if(super.getSpeed()>rat.getSpeed()){
+                rat.setStatus(false);
+            }else {
+                rat.setStatus(true);
+            }
+        }
+        eatRat(rat) {
+            if (!rat.getStatus()){
+                console.log('sau khi an thit chuot la ',super.getWeight()+rat.getWeight())
+            }else {
+                console.log('nhin di')
+            }
+
+        }
+
+    }
+
+</script>
+</body>
+</html>
